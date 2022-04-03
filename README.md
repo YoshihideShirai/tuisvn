@@ -11,6 +11,13 @@ Tuisvn is subversion(svn) client like tig(https://github.com/jonas/tig).
 - Linux
 - Installed svn command.
 
+## Installation
+
+~~~shell
+$ curl -L https://github.com/YoshihideShirai/tuisvn/releases/download/v0.0.1/tuisvn-v0.0
+.1-linux-amd64.tar.gz | sudo tar xzvf - -C /usr/local/bin
+~~~
+
 ## Usage
 
 ~~~shell
@@ -24,7 +31,7 @@ Tuisvn is under development.
 Implemented status is following...
 - [x] file and directory tree. (svn ls)
 - [x] revision history. (svn log)
-- [ ] revision diff
+- [x] revision diff
 - [ ] revision cat
 
 ## License
