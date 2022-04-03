@@ -15,7 +15,7 @@ It functions mainly as a svn repository browser like tig(https://github.com/jona
 ## Installation
 
 ~~~shell
-$ curl -L https://github.com/YoshihideShirai/tuisvn/releases/download/v0.0.2/tuisvn-v0.0.2-linux-amd64.tar.gz | sudo tar xzvf - -C /usr/local/bin
+$ curl -L https://github.com/YoshihideShirai/tuisvn/releases/download/v0.0.3/tuisvn-v0.0.3-linux-amd64.tar.gz | sudo tar xzvf - -C /usr/local/bin
 ~~~
 
 ## Key bindings
