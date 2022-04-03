@@ -18,6 +18,36 @@ $ curl -L https://github.com/YoshihideShirai/tuisvn/releases/download/v0.0.1/tui
 .1-linux-amd64.tar.gz | sudo tar xzvf - -C /usr/local/bin
 ~~~
 
+## Key bindings
+
+### tree screen
+
+- k : Move-up
+- j : Move-down
+- Enter : change directory
+- l : Enter log screen on selected file and directory.
+- q : Back previous screen.
+
+### log screen
+
+- k : Move-up
+- j : Move-down
+- Enter : Enter rev screen
+- q : Back previous screen.
+
+### rev screen
+
+- k : Move-up
+- j : Move-down
+- Enter : Enter diff screen on change directory.
+- q : Back previous screen.
+
+### diff screen
+
+- k : Move-up
+- j : Move-down
+- q : Back previous screen.
+
 ## Usage
 
 ~~~shell
