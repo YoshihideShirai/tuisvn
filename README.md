@@ -2,7 +2,8 @@
 
 ## What is tuisvn
 
-Tuisvn is subversion(svn) client like tig(https://github.com/jonas/tig).
+Tuisvn is subversion(svn) client.  
+It functions mainly as a svn repository browser like tig(https://github.com/jonas/tig).
 
 ![](./docs/screenshot.png)
 
