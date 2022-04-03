@@ -3,9 +3,14 @@ package tui
 import (
 	"bytes"
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"os/exec"
 	"strings"
+
+	"github.com/saintfish/chardet"
+	"golang.org/x/net/html/charset"
+	"golang.org/x/text/transform"
 )
 
 type SvnLogXml struct {
@@ -70,7 +75,17 @@ func (t *Tui) SvnDiff(repos string, path string, rev string) string {
 	if err != nil {
 		t.TuiPanic(stderr.String())
 	}
-	return stdout.String()
+	output := stdout.String()
+	result := ""
+	for _, v := range strings.Split(output, "\n") {
+		out, err := DecodeAutoDetect([]byte(v))
+		if err != nil {
+			result += v + "\n"
+		} else {
+			result += out + "\n"
+		}
+	}
+	return result
 }
 
 func (t *Tui) SvnLogSummary(repos string, path string) *SvnLogXml {
@@ -117,4 +132,24 @@ func (t *Tui) SvnInfo(url string) *SvnInfoXml {
 		t.TuiPanic(err.Error())
 	}
 	return svnlog
+}
+
+func DecodeAutoDetect(src []byte) (string, error) {
+	d := chardet.NewHtmlDetector()
+	r, err := d.DetectBest(src)
+	if err != nil {
+		return string(src), err
+	}
+	e, _ := charset.Lookup(r.Charset)
+	if e == nil {
+		return string(src), errors.New(fmt.Sprintf("invalid charset [%s]", r.Charset))
+	}
+	decodeStr, _, err := transform.Bytes(
+		e.NewDecoder(),
+		src,
+	)
+	if err != nil {
+		return string(src), err
+	}
+	return string(decodeStr), nil
 }
