@@ -19,8 +19,17 @@ func (t *Tui) NewTuiDiff(repos string, path string, rev string) {
 	main := tview.NewTable().SetSelectable(true, false)
 
 	for i, v := range strings.Split(diff_output, "\n") {
+		color := "white"
+		if strings.HasPrefix(v, "+") {
+			color = "green"
+		} else if strings.HasPrefix(v, "-") {
+			color = "red"
+		} else if strings.HasPrefix(v, "@") {
+			color = "purple"
+		}
+		output := fmt.Sprintf("[%s]%s[white]", color, tview.Escape(v))
 		main.SetCell(i, 0,
-			tview.NewTableCell(tview.Escape(v)).SetExpansion(1))
+			tview.NewTableCell(output).SetExpansion(1))
 	}
 
 	s.prim.
