@@ -78,6 +78,18 @@ func (t *Tui) NewTuiRev(repos string, path string, rev string) {
 				t.ChangeScreen(repos, change_screen)
 			}
 			return nil
+		case tcell.KeyDown:
+			row, _ := main.GetSelection()
+			if row < main.GetRowCount()-1 {
+				row++
+			}
+			main.Select(row, 0)
+			return nil
+		case tcell.KeyUp:
+			row, _ := main.GetSelection()
+			row--
+			main.Select(row, 0)
+			return nil
 		case tcell.KeyRune:
 			switch event.Rune() {
 			case 'k':
