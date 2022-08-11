@@ -66,7 +66,7 @@ func (t *Tui) SvnDiff(repos string, path string, rev string) string {
 	url := t.config.Repos[repos].Url + path
 	rev = strings.TrimPrefix(rev, "r")
 	rev_opt := "-c" + rev
-	cmd := exec.Command("svn", "diff", rev_opt, url)
+	cmd := exec.Command("svn", "diff", "--internal-diff", rev_opt, url)
 	var stdout bytes.Buffer
 	var stderr bytes.Buffer
 	cmd.Stdout = &stdout
