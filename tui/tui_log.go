@@ -77,6 +77,18 @@ func (t *Tui) NewTuiLog(repos string, path string) {
 			rev = re1.ReplaceAllString(rev, "")
 			t.ChangeScreen(repos, "rev:"+path+":"+rev)
 			return nil
+		case tcell.KeyDown:
+			row, _ := main.GetSelection()
+			if row < main.GetRowCount()-1 {
+				row++
+			}
+			main.Select(row, 0)
+			return nil
+		case tcell.KeyUp:
+			row, _ := main.GetSelection()
+			row--
+			main.Select(row, 0)
+			return nil
 		case tcell.KeyRune:
 			switch event.Rune() {
 			case 'k':

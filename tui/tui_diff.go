@@ -58,6 +58,18 @@ func (t *Tui) NewTuiDiff(repos string, path string, rev string) {
 				t.BackScreen()
 				return nil
 			}
+		case tcell.KeyUp:
+			row, _ := main.GetSelection()
+			row--
+			main.Select(row, 0)
+			return nil
+		case tcell.KeyDown:
+			row, _ := main.GetSelection()
+			if row < main.GetRowCount()-1 {
+				row++
+			}
+			main.Select(row, 0)
+			return nil
 		}
 		return event
 	})
