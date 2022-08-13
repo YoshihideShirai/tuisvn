@@ -14,12 +14,6 @@ It functions mainly as a svn repository browser like tig(https://github.com/jona
 
 ## Installation
 
-- stable
-~~~shell
-$ curl -L https://github.com/YoshihideShirai/tuisvn/releases/download/v0.0.3/tuisvn-v0.0.3-linux-amd64.tar.gz | sudo tar xzvf - -C /usr/local/bin
-~~~
-
-- latest
 ~~~shell
 $ go install github.com/YoshihideShirai/tuisvn@latest
 ~~~
