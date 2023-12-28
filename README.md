@@ -15,7 +15,7 @@ It functions mainly as a svn repository browser like tig(https://github.com/jona
 ## Installation
 
 ~~~shell
-$ go install github.com/YoshihideShirai/tuisvn@latest
+go install github.com/YoshihideShirai/tuisvn@latest
 ~~~
 
 ## Key bindings
@@ -51,7 +51,7 @@ $ go install github.com/YoshihideShirai/tuisvn@latest
 ## Usage
 
 ~~~shell
-$ tuisvn [repository path or url]
+tuisvn [repository path or url]
 ~~~
 If argv is omitted, repository path is set the current directory.
 
