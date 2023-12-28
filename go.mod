@@ -7,7 +7,7 @@ require (
 	github.com/rivo/tview v0.0.0-20220307222120-9994674d60a8
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca
 	golang.org/x/net v0.0.0-20220403103023-749bd193bc2b
-	golang.org/x/text v0.3.7
+	golang.org/x/text v0.3.8
 )
 
 require (
